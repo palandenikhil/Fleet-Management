@@ -15,7 +15,7 @@ public class BookingHeader {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long bookingid;  
+    private Long bookingId;  
 
     @Column(nullable = false)
     private LocalDate date;  
