@@ -24,17 +24,63 @@ public class InvoiceHeader {
     private Long invoiceId;
 
  
-    private LocalDate date;
+    //private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "bookingid" , nullable = false,referencedColumnName = "bookingid")
     private BookingHeader booking;
-
-    @ManyToOne
-    @JoinColumn(name = "custId" , nullable = false,referencedColumnName = "custId")
-    private CustomerMaster customer;
     
-    @Temporal(TemporalType.DATE)
+    private String cName; 
+	private String cEmailId; 
+	private String cMobileNo; 
+	private String cAadharNo; 
+	private String cPassNo; 
+
+//    @ManyToOne
+//    @JoinColumn(name = "custId" , nullable = false,referencedColumnName = "custId")
+//    private CustomerMaster customer;
+    
+    public String getcName() {
+		return cName;
+	}
+
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
+
+	public String getcEmailId() {
+		return cEmailId;
+	}
+
+	public void setcEmailId(String cEmailId) {
+		this.cEmailId = cEmailId;
+	}
+
+	public String getcMobileNo() {
+		return cMobileNo;
+	}
+
+	public void setcMobileNo(String cMobileNo) {
+		this.cMobileNo = cMobileNo;
+	}
+
+	public String getcAadharNo() {
+		return cAadharNo;
+	}
+
+	public void setcAadharNo(String cAadharNo) {
+		this.cAadharNo = cAadharNo;
+	}
+
+	public String getcPassNo() {
+		return cPassNo;
+	}
+
+	public void setcPassNo(String cPassNo) {
+		this.cPassNo = cPassNo;
+	}
+
+	@Temporal(TemporalType.DATE)
     private LocalDate handoverDate;
 
     @ManyToOne
@@ -62,13 +108,13 @@ public class InvoiceHeader {
 		this.invoiceId = invoiceId;
 	}
 
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
+//	public LocalDate getDate() {
+//		return date;
+//	}
+//
+//	public void setDate(LocalDate date) {
+//		this.date = date;
+//	}
 
 	public BookingHeader getBooking() {
 		return booking;
@@ -78,13 +124,13 @@ public class InvoiceHeader {
 		this.booking = booking;
 	}
 
-	public CustomerMaster getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(CustomerMaster customer) {
-		this.customer = customer;
-	}
+//	public CustomerMaster getCustomer() {
+//		return customer;
+//	}
+//
+//	public void setCustomer(CustomerMaster customer) {
+//		this.customer = customer;
+//	}
 
 	public LocalDate getHandoverDate() {
 		return handoverDate;
@@ -152,11 +198,14 @@ public class InvoiceHeader {
 
 	@Override
 	public String toString() {
-		return "InvoiceHeader [invoiceId=" + invoiceId + ", date=" + date + ", customer=" + customer + ", handoverDate="
-				+ handoverDate + ", car=" + car + ", returnDate=" + returnDate + ", rentalAmt=" + rentalAmt
-				+ ", totalAddOnAmt=" + totalAddOnAmt + ", totalAmt=" + totalAmt + ", customerDetails=" + customerDetails
-				+ ", rate=" + rate + "]";
+		return "InvoiceHeader [invoiceId=" + invoiceId + ", booking=" + booking + ", cName=" + cName + ", cEmailId="
+				+ cEmailId + ", cMobileNo=" + cMobileNo + ", cAadharNo=" + cAadharNo + ", cPassNo=" + cPassNo
+				+ ", handoverDate=" + handoverDate + ", car=" + car + ", returnDate=" + returnDate + ", rentalAmt="
+				+ rentalAmt + ", totalAddOnAmt=" + totalAddOnAmt + ", totalAmt=" + totalAmt + ", customerDetails="
+				+ customerDetails + ", rate=" + rate + "]";
 	}
+
+	
 
     
 }

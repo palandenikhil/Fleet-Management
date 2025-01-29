@@ -13,13 +13,16 @@ public class HubMaster {
     private String hubName;
 
     private String hubAddress;
+    
+    @Column(unique = true) 
+    private Long contactNumber;
 
     @ManyToOne
-    @JoinColumn(name = "city_id",referencedColumnName = "cityId" ,nullable = false)
+    @JoinColumn(name = "cityId",referencedColumnName = "cityId" ,nullable = false)
     private CityMaster city;
 
     @ManyToOne
-    @JoinColumn(name = "state_id", referencedColumnName = "stateId",nullable = false)
+    @JoinColumn(name = "stateId", referencedColumnName = "stateId",nullable = false)
     private StateMaster state;
 
     // Getters and Setters
