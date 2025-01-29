@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class AddOnMaster {
-	 @Id
+	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long addonId;
 
@@ -48,4 +48,12 @@ public class AddOnMaster {
 	    public void setRateValidUpto(LocalDate rateValidUpto) {
 	        this.rateValidUpto = rateValidUpto;
 	    }
+
+		@Override
+		public String toString() {
+			return "AddOnMaster [addonId=" + addonId + ", addonName=" + addonName + ", addonDailyRate=" + addonDailyRate
+					+ ", rateValidUpto=" + rateValidUpto + "]";
+		}
+	    
+	    
 }
