@@ -7,6 +7,8 @@ import org.springframework.cglib.core.Local;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -36,9 +38,38 @@ public class InvoiceHeader {
 	private String cAadharNo; 
 	private String cPassNo; 
 
-//    @ManyToOne
-//    @JoinColumn(name = "custId" , nullable = false,referencedColumnName = "custId")
-//    private CustomerMaster customer;
+    @ManyToOne
+    @JoinColumn(name = "customerId" , nullable = false,referencedColumnName = "customerId")
+    private CustomerMaster customer;
+    
+    private int pickup_hubId;
+    	
+    private int return_hubId;
+
+    @Enumerated(EnumType.STRING)
+	@Column(name = "isReturned", length = 1)
+	private Return_Status isReturned;
+    
+    public enum Return_Status 
+    {
+        Y, N
+    }
+	 
+    public int getPickup_hubId() {
+		return pickup_hubId;
+	}
+
+	public void setPickup_hubId(int pickup_hubId) {
+		this.pickup_hubId = pickup_hubId;
+	}
+
+	public int getReturn_hubId() {
+		return return_hubId;
+	}
+
+	public void setReturn_hubId(int return_hubId) {
+		this.return_hubId = return_hubId;
+	}
     
     public String getcName() {
 		return cName;
@@ -96,7 +127,7 @@ public class InvoiceHeader {
 
     private double totalAmt;
 
-    private String customerDetails;
+    //private String customerDetails;
 
     private String rate;
 
@@ -124,13 +155,13 @@ public class InvoiceHeader {
 		this.booking = booking;
 	}
 
-//	public CustomerMaster getCustomer() {
-//		return customer;
-//	}
-//
-//	public void setCustomer(CustomerMaster customer) {
-//		this.customer = customer;
-//	}
+	public CustomerMaster getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(CustomerMaster customer) {
+		this.customer = customer;
+	}
 
 	public LocalDate getHandoverDate() {
 		return handoverDate;
@@ -180,13 +211,13 @@ public class InvoiceHeader {
 		this.totalAmt = totalAmt;
 	}
 
-	public String getCustomerDetails() {
-		return customerDetails;
-	}
-
-	public void setCustomerDetails(String customerDetails) {
-		this.customerDetails = customerDetails;
-	}
+//	public String getCustomerDetails() {
+//		return customerDetails;
+//	}
+//
+//	public void setCustomerDetails(String customerDetails) {
+//		this.customerDetails = customerDetails;
+//	}
 
 	public String getRate() {
 		return rate;
@@ -196,14 +227,25 @@ public class InvoiceHeader {
 		this.rate = rate;
 	}
 
+	public Return_Status getIsReturned() {
+		return isReturned;
+	}
+
+	public void setIsReturned(Return_Status isReturned) {
+		this.isReturned = isReturned;
+	}
+
 	@Override
 	public String toString() {
 		return "InvoiceHeader [invoiceId=" + invoiceId + ", booking=" + booking + ", cName=" + cName + ", cEmailId="
 				+ cEmailId + ", cMobileNo=" + cMobileNo + ", cAadharNo=" + cAadharNo + ", cPassNo=" + cPassNo
-				+ ", handoverDate=" + handoverDate + ", car=" + car + ", returnDate=" + returnDate + ", rentalAmt="
-				+ rentalAmt + ", totalAddOnAmt=" + totalAddOnAmt + ", totalAmt=" + totalAmt + ", customerDetails="
-				+ customerDetails + ", rate=" + rate + "]";
+				+ ", customer=" + customer + ", pickup_hubId=" + pickup_hubId + ", return_hubId=" + return_hubId
+				+ ", isReturned=" + isReturned + ", handoverDate=" + handoverDate + ", car=" + car + ", returnDate="
+				+ returnDate + ", rentalAmt=" + rentalAmt + ", totalAddOnAmt=" + totalAddOnAmt + ", totalAmt="
+				+ totalAmt + ", rate=" + rate + "]";
 	}
+
+
 
 	
 
