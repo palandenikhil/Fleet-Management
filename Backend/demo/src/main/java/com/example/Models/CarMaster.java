@@ -15,20 +15,30 @@ public class CarMaster {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long carid;  
-
-    @Column(nullable = false)
-    private Long carTypeid;  
-
-    private String cardtl;  
+    private Long carId;  
 
     @ManyToOne
-    @JoinColumn(name = "hubid", nullable = false, referencedColumnName="hubId") 
-    private HubMaster hub_id;  // Reference to HubMaster entity
+    @JoinColumn(name = "carTypeId", nullable = false, referencedColumnName="carTypeId")
+    private CarTypeMaster carTypeId;  
+    
+    private String carName;  
+    
+    @Column(unique = true)
+    private String numberPlate;
+    
+    private String fuelStatus;
+    
 
+    @ManyToOne
+    @JoinColumn(name = "hubId", nullable = false, referencedColumnName="hubId") 
+    private HubMaster hub_id;  // Reference to HubMaster entity
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Is_Available", length = 1)
+    private AvailabilityStatus isAvailable;
+    
     @Column(nullable = false)
-    private Boolean isavailable;  
-    @Column(nullable = false)
+<<<<<<< HEAD
     private LocalDate maintenanceduedate;
     
     public Long getCarid() {
@@ -78,4 +88,12 @@ public class CarMaster {
     public void setMaintenanceduedate(LocalDate maintenanceduedate) {
         this.maintenanceduedate = maintenanceduedate;
     }
+=======
+    private LocalDate maintenanceduedate;  
+    
+    public enum AvailabilityStatus {
+        Y, N
+    }
+
+>>>>>>> b7ffdaa3a0139ffd2d34ec4e5ece3372b7037bce
 }

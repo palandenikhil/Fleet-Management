@@ -1,7 +1,11 @@
 package com.example.Models;
 
 
+<<<<<<< HEAD
 import org.antlr.v4.runtime.misc.NotNull;
+=======
+import java.time.LocalDate;
+>>>>>>> b7ffdaa3a0139ffd2d34ec4e5ece3372b7037bce
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,20 +19,17 @@ import jakarta.persistence.Table;
 @Entity
 public class CustomerMaster {
     
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int custId;
+    private int customerId;
 
-    private String custName;
-    
-    private String password;
-    
-    private String emailId;
+    private String firstName;
 
-    private String address1;
+    private String lastName;
 
-    private String address2;
+    private String addressLine1;
 
+<<<<<<< HEAD
     
     public CustomerMaster(@SuppressWarnings("deprecation") @NotNull Integer custId) {
         if (custId == null) {
@@ -39,111 +40,265 @@ public class CustomerMaster {
     @ManyToOne
     @JoinColumn(name = "cityId" , nullable = false,referencedColumnName = "cityId")
     private CityMaster city;
+=======
+    private String addressLine2;
+>>>>>>> b7ffdaa3a0139ffd2d34ec4e5ece3372b7037bce
 
-    @ManyToOne
-    @JoinColumn(name = "stateId" , nullable = false,referencedColumnName = "stateId")
-    private StateMaster state;
+    @Column(unique = true)
+    private String email;
 
-    private String pin;
+    private String city;
 
-    private String phone;
+    private String pincode;
 
-	public int getCustId() {
-		return custId;
+    private String phoneNumber;
+
+    private String mobileNumber;
+
+    private String creditCardType;
+
+    private String creditCardNumber;
+
+    private String drivingLicenseNumber;
+
+    private String idpNumber;
+
+    private String issuedByDL;
+
+    private LocalDate validThroughDL;
+
+    private String passportNumber;
+
+    private LocalDate passportValidThrough;
+
+    private String passportIssuedBy;
+
+    private LocalDate passportValidFrom;
+
+    private LocalDate passportIssueDate;
+
+    private LocalDate dateOfBirth;
+
+	public int getCustomerId() {
+		return customerId;
 	}
 
-	public void setCustId(int custId) {
-		this.custId = custId;
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
 	}
 
-	public String getCustName() {
-		return custName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setCustName(String custName) {
-		this.custName = custName;
-	}
-	
-	public String getEmailId() {
-		return emailId;
-	}
-	
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getAddress1() {
-		return address1;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setAddress1(String address1) {
-		this.address1 = address1;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getAddress2() {
-		return address2;
+	public String getAddressLine1() {
+		return addressLine1;
 	}
 
-	public void setAddress2(String address2) {
-		this.address2 = address2;
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
 	}
 
-	public CityMaster getCity() {
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getCity() {
 		return city;
 	}
 
-	public void setCity(CityMaster city) {
+	public void setCity(String city) {
 		this.city = city;
 	}
 
-	public StateMaster getState() {
-		return state;
+	public String getPincode() {
+		return pincode;
 	}
 
-	public void setState(StateMaster state) {
-		this.state = state;
+	public void setPincode(String pincode) {
+		this.pincode = pincode;
 	}
 
-	public String getPin() {
-		return pin;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPin(String pin) {
-		this.pin = pin;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public String getCreditCardType() {
+		return creditCardType;
+	}
+
+	public void setCreditCardType(String creditCardType) {
+		this.creditCardType = creditCardType;
+	}
+
+	public String getCreditCardNumber() {
+		return creditCardNumber;
+	}
+
+	public void setCreditCardNumber(String creditCardNumber) {
+		this.creditCardNumber = creditCardNumber;
+	}
+
+	public String getDrivingLicenseNumber() {
+		return drivingLicenseNumber;
+	}
+
+	public void setDrivingLicenseNumber(String drivingLicenseNumber) {
+		this.drivingLicenseNumber = drivingLicenseNumber;
+	}
+
+	public String getIdpNumber() {
+		return idpNumber;
+	}
+
+	public void setIdpNumber(String idpNumber) {
+		this.idpNumber = idpNumber;
+	}
+
+	public String getIssuedByDL() {
+		return issuedByDL;
+	}
+
+	public void setIssuedByDL(String issuedByDL) {
+		this.issuedByDL = issuedByDL;
+	}
+
+	public LocalDate getValidThroughDL() {
+		return validThroughDL;
+	}
+
+	public void setValidThroughDL(LocalDate validThroughDL) {
+		this.validThroughDL = validThroughDL;
+	}
+
+	public String getPassportNumber() {
+		return passportNumber;
+	}
+
+	public void setPassportNumber(String passportNumber) {
+		this.passportNumber = passportNumber;
+	}
+
+	public LocalDate getPassportValidThrough() {
+		return passportValidThrough;
+	}
+
+	public void setPassportValidThrough(LocalDate passportValidThrough) {
+		this.passportValidThrough = passportValidThrough;
+	}
+
+	public String getPassportIssuedBy() {
+		return passportIssuedBy;
+	}
+
+	public void setPassportIssuedBy(String passportIssuedBy) {
+		this.passportIssuedBy = passportIssuedBy;
+	}
+
+	public LocalDate getPassportValidFrom() {
+		return passportValidFrom;
+	}
+
+	public void setPassportValidFrom(LocalDate passportValidFrom) {
+		this.passportValidFrom = passportValidFrom;
+	}
+
+	public LocalDate getPassportIssueDate() {
+		return passportIssueDate;
+	}
+
+	public void setPassportIssueDate(LocalDate passportIssueDate) {
+		this.passportIssueDate = passportIssueDate;
+	}
+
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	
+	public CustomerMaster() {
+		
+	}
+	public CustomerMaster(int customerId, String firstName, String lastName, String addressLine1, String addressLine2,
+			String email, String city, String pincode, String phoneNumber, String mobileNumber, String creditCardType,
+			String creditCardNumber, String drivingLicenseNumber, String idpNumber, String issuedByDL,
+			LocalDate validThroughDL, String passportNumber, LocalDate passportValidThrough, String passportIssuedBy,
+			LocalDate passportValidFrom, LocalDate passportIssueDate, LocalDate dateOfBirth) {
+		super();
+		this.customerId = customerId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.addressLine1 = addressLine1;
+		this.addressLine2 = addressLine2;
+		this.email = email;
+		this.city = city;
+		this.pincode = pincode;
+		this.phoneNumber = phoneNumber;
+		this.mobileNumber = mobileNumber;
+		this.creditCardType = creditCardType;
+		this.creditCardNumber = creditCardNumber;
+		this.drivingLicenseNumber = drivingLicenseNumber;
+		this.idpNumber = idpNumber;
+		this.issuedByDL = issuedByDL;
+		this.validThroughDL = validThroughDL;
+		this.passportNumber = passportNumber;
+		this.passportValidThrough = passportValidThrough;
+		this.passportIssuedBy = passportIssuedBy;
+		this.passportValidFrom = passportValidFrom;
+		this.passportIssueDate = passportIssueDate;
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	@Override
 	public String toString() {
-		return "CustomerMaster [custId=" + custId + ", custName=" + custName + ", address1=" + address1 + ", address2="
-				+ address2 + ", pin=" + pin + ", phone=" + phone + "]";
-	}
-
-	public CustomerMaster(Integer custId, String custName, String address1, String address2, CityMaster city,
-			StateMaster state, String pin, String phone) {
-		super();
-		this.custId = custId;
-		this.custName = custName;
-		this.address1 = address1;
-		this.address2 = address2;
-		this.city = city;
-		this.state = state;
-		this.pin = pin;
-		this.phone = phone;
+		return "CustomerMaster [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", addressLine1=" + addressLine1 + ", addressLine2=" + addressLine2 + ", email=" + email + ", city="
+				+ city + ", pincode=" + pincode + ", phoneNumber=" + phoneNumber + ", mobileNumber=" + mobileNumber
+				+ ", creditCardType=" + creditCardType + ", creditCardNumber=" + creditCardNumber
+				+ ", drivingLicenseNumber=" + drivingLicenseNumber + ", idpNumber=" + idpNumber + ", issuedByDL="
+				+ issuedByDL + ", validThroughDL=" + validThroughDL + ", passportNumber=" + passportNumber
+				+ ", passportValidThrough=" + passportValidThrough + ", passportIssuedBy=" + passportIssuedBy
+				+ ", passportValidFrom=" + passportValidFrom + ", passportIssueDate=" + passportIssueDate
+				+ ", dateOfBirth=" + dateOfBirth + "]";
 	}
 
     

@@ -21,9 +21,9 @@ public class BookingDetail {
     
     @ManyToOne
     @JoinColumn(nullable = false, referencedColumnName="addonid")  
-    private AddOnMaster addonid;  
+    private AddOnMaster addonId;  
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(nullable = false,referencedColumnName="addonid")
     private AddOnMaster addonRate;  
  }

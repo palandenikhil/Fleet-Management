@@ -39,8 +39,13 @@ public class InvoiceHeader {
 	private String cAadharNo; 
 	private String cPassNo; 
 
+<<<<<<< HEAD
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "custId" , nullable = false,referencedColumnName = "custId")
+=======
+    @ManyToOne
+    @JoinColumn(name = "customerId" , nullable = false,referencedColumnName = "customerId")
+>>>>>>> b7ffdaa3a0139ffd2d34ec4e5ece3372b7037bce
     private CustomerMaster customer;
     
     private int pickup_hubId;
@@ -230,6 +235,7 @@ public class InvoiceHeader {
 
 	public Return_Status getIsReturned() {
 		return isReturned;
+<<<<<<< HEAD
 	}
 
 	public void setIsReturned(Return_Status isReturned) {
@@ -246,6 +252,24 @@ public class InvoiceHeader {
 				+ totalAmt + ", rate=" + rate + "]";
 	}
 
+=======
+	}
+
+	public void setIsReturned(Return_Status isReturned) {
+		this.isReturned = isReturned;
+	}
+
+	@Override
+	public String toString() {
+		return "InvoiceHeader [invoiceId=" + invoiceId + ", booking=" + booking + ", cName=" + cName + ", cEmailId="
+				+ cEmailId + ", cMobileNo=" + cMobileNo + ", cAadharNo=" + cAadharNo + ", cPassNo=" + cPassNo
+				+ ", customer=" + customer + ", pickup_hubId=" + pickup_hubId + ", return_hubId=" + return_hubId
+				+ ", isReturned=" + isReturned + ", handoverDate=" + handoverDate + ", car=" + car + ", returnDate="
+				+ returnDate + ", rentalAmt=" + rentalAmt + ", totalAddOnAmt=" + totalAddOnAmt + ", totalAmt="
+				+ totalAmt + ", rate=" + rate + "]";
+	}
+
+>>>>>>> b7ffdaa3a0139ffd2d34ec4e5ece3372b7037bce
 
 
 	
