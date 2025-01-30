@@ -37,6 +37,19 @@ public class StateMaster {
     public void setStateName(String stateName) {
         this.stateName = stateName;
     }
+
+
+	@Override
+	public String toString() {
+		return "StateMaster [stateId=" + stateId + ", stateName=" + stateName + "]";
+	}
+
+
+	public StateMaster(Long stateId, String stateName) {
+		super();
+		this.stateId = stateId;
+		this.stateName = stateName;
+	}
 }
 
 

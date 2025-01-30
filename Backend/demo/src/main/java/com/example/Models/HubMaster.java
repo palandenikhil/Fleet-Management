@@ -65,4 +65,26 @@ public class HubMaster {
     public void setState(StateMaster state) {
         this.state = state;
     }
+
+	public HubMaster(Long hubId, String hubName, String hubAddress, Long contactNumber, CityMaster city,
+			StateMaster state) {
+		super();
+		this.hubId = hubId;
+		this.hubName = hubName;
+		this.hubAddress = hubAddress;
+		this.contactNumber = contactNumber;
+		this.city = city;
+		this.state = state;
+	}
+    public HubMaster() {
+    	
+    }
+
+	@Override
+	public String toString() {
+		return "HubMaster [hubId=" + hubId + ", hubName=" + hubName + ", hubAddress=" + hubAddress + ", contactNumber="
+				+ contactNumber + ", city=" + city + ", state=" + state + "]";
+	}
+    
+    
 }
