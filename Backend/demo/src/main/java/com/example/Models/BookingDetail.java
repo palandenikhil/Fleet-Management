@@ -18,7 +18,7 @@ public class BookingDetail {
     @ManyToOne
     @JoinColumn(nullable = false,referencedColumnName="bookingId")
     private BookingHeader bookingId;  // Foreign key to Booking entity
-
+    
     @ManyToOne
     @JoinColumn(nullable = false, referencedColumnName="addonid")  
     private AddOnMaster addonid;  

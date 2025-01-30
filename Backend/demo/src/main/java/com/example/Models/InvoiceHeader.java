@@ -5,8 +5,11 @@ import java.time.LocalDate;
 import org.aspectj.apache.bcel.generic.LOOKUPSWITCH;
 import org.springframework.cglib.core.Local;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,21 +27,96 @@ public class InvoiceHeader {
     private Long invoiceId;
 
  
-    private LocalDate date;
+    //private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "bookingid" , nullable = false,referencedColumnName = "bookingid")
     private BookingHeader booking;
+    
+    private String cName; 
+	private String cEmailId; 
+	private String cMobileNo; 
+	private String cAadharNo; 
+	private String cPassNo; 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "custId" , nullable = false,referencedColumnName = "custId")
     private CustomerMaster customer;
     
-    @Temporal(TemporalType.DATE)
+    private int pickup_hubId;
+    	
+    private int return_hubId;
+
+    @Enumerated(EnumType.STRING)
+	@Column(name = "isReturned", length = 1)
+	private Return_Status isReturned;
+    
+    public enum Return_Status 
+    {
+        Y, N
+    }
+	 
+    public int getPickup_hubId() {
+		return pickup_hubId;
+	}
+
+	public void setPickup_hubId(int pickup_hubId) {
+		this.pickup_hubId = pickup_hubId;
+	}
+
+	public int getReturn_hubId() {
+		return return_hubId;
+	}
+
+	public void setReturn_hubId(int return_hubId) {
+		this.return_hubId = return_hubId;
+	}
+    
+    public String getcName() {
+		return cName;
+	}
+
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
+
+	public String getcEmailId() {
+		return cEmailId;
+	}
+
+	public void setcEmailId(String cEmailId) {
+		this.cEmailId = cEmailId;
+	}
+
+	public String getcMobileNo() {
+		return cMobileNo;
+	}
+
+	public void setcMobileNo(String cMobileNo) {
+		this.cMobileNo = cMobileNo;
+	}
+
+	public String getcAadharNo() {
+		return cAadharNo;
+	}
+
+	public void setcAadharNo(String cAadharNo) {
+		this.cAadharNo = cAadharNo;
+	}
+
+	public String getcPassNo() {
+		return cPassNo;
+	}
+
+	public void setcPassNo(String cPassNo) {
+		this.cPassNo = cPassNo;
+	}
+
+	@Temporal(TemporalType.DATE)
     private LocalDate handoverDate;
 
-    @ManyToOne
-    @JoinColumn(name = "carId" , nullable = false,referencedColumnName = "carId")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "carId" , nullable = false,referencedColumnName = "carid")
     private CarMaster car;
 
     @Temporal(TemporalType.DATE)
@@ -50,7 +128,7 @@ public class InvoiceHeader {
 
     private double totalAmt;
 
-    private String customerDetails;
+    //private String customerDetails;
 
     private String rate;
 
@@ -62,13 +140,13 @@ public class InvoiceHeader {
 		this.invoiceId = invoiceId;
 	}
 
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
+//	public LocalDate getDate() {
+//		return date;
+//	}
+//
+//	public void setDate(LocalDate date) {
+//		this.date = date;
+//	}
 
 	public BookingHeader getBooking() {
 		return booking;
@@ -134,13 +212,13 @@ public class InvoiceHeader {
 		this.totalAmt = totalAmt;
 	}
 
-	public String getCustomerDetails() {
-		return customerDetails;
-	}
-
-	public void setCustomerDetails(String customerDetails) {
-		this.customerDetails = customerDetails;
-	}
+//	public String getCustomerDetails() {
+//		return customerDetails;
+//	}
+//
+//	public void setCustomerDetails(String customerDetails) {
+//		this.customerDetails = customerDetails;
+//	}
 
 	public String getRate() {
 		return rate;
@@ -150,13 +228,27 @@ public class InvoiceHeader {
 		this.rate = rate;
 	}
 
+	public Return_Status getIsReturned() {
+		return isReturned;
+	}
+
+	public void setIsReturned(Return_Status isReturned) {
+		this.isReturned = isReturned;
+	}
+
 	@Override
 	public String toString() {
-		return "InvoiceHeader [invoiceId=" + invoiceId + ", date=" + date + ", customer=" + customer + ", handoverDate="
-				+ handoverDate + ", car=" + car + ", returnDate=" + returnDate + ", rentalAmt=" + rentalAmt
-				+ ", totalAddOnAmt=" + totalAddOnAmt + ", totalAmt=" + totalAmt + ", customerDetails=" + customerDetails
-				+ ", rate=" + rate + "]";
+		return "InvoiceHeader [invoiceId=" + invoiceId + ", booking=" + booking + ", cName=" + cName + ", cEmailId="
+				+ cEmailId + ", cMobileNo=" + cMobileNo + ", cAadharNo=" + cAadharNo + ", cPassNo=" + cPassNo
+				+ ", customer=" + customer + ", pickup_hubId=" + pickup_hubId + ", return_hubId=" + return_hubId
+				+ ", isReturned=" + isReturned + ", handoverDate=" + handoverDate + ", car=" + car + ", returnDate="
+				+ returnDate + ", rentalAmt=" + rentalAmt + ", totalAddOnAmt=" + totalAddOnAmt + ", totalAmt="
+				+ totalAmt + ", rate=" + rate + "]";
 	}
+
+
+
+	
 
     
 }

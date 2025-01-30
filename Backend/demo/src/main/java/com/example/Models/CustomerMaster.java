@@ -1,6 +1,8 @@
 package com.example.Models;
 
 
+import org.antlr.v4.runtime.misc.NotNull;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +29,13 @@ public class CustomerMaster {
 
     private String address2;
 
+    
+    public CustomerMaster(@SuppressWarnings("deprecation") @NotNull Integer custId) {
+        if (custId == null) {
+            throw new IllegalArgumentException("Customer ID cannot be null");
+        }
+        this.custId = custId;
+    }
     @ManyToOne
     @JoinColumn(name = "cityId" , nullable = false,referencedColumnName = "cityId")
     private CityMaster city;
