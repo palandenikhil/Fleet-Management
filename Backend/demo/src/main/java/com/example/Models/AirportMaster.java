@@ -12,18 +12,19 @@ public class AirportMaster {
 
 	    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	    @JoinColumn(name = "cityId",referencedColumnName = "cityId", nullable = false)
-	    private CityMaster city;
+	    private CityMaster cityId;
 
 	    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	    @JoinColumn(name = "stateId",referencedColumnName = "stateId", nullable = false)
-	    private StateMaster state;
+	    private StateMaster stateId;
         
 	    @Column(unique = true)
 	    private String airportCode;
 
 	    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	    @JoinColumn(name = "hubId",referencedColumnName = "hubId",nullable=false)
-	    private HubMaster hub;
+	    private HubMaster hubId;
+	    
 	    // Getters and Setters
 	    public Long getAirportId() {
 	        return airportId;
@@ -42,27 +43,27 @@ public class AirportMaster {
 	    }
 
 	    public CityMaster getCity() {
-	        return city;
+	        return cityId;
 	    }
 
-	    public void setCity(CityMaster city) {
-	        this.city = city;
+	    public void setCity(CityMaster cityId) {
+	        this.cityId = cityId;
 	    }
 
 	    public StateMaster getState() {
-	        return state;
+	        return stateId;
 	    }
 
-	    public void setState(StateMaster state) {
-	        this.state = state;
+	    public void setState(StateMaster stateId) {
+	        this.stateId = stateId;
 	    }
 	    
 	    public HubMaster getHub() {
-	        return hub;
+	        return hubId;
 	    }
 
-	    public void setHub(HubMaster state) {
-	        this.hub = hub;
+	    public void setHub(HubMaster hubId) {
+	        this.hubId = hubId;
 	    }
 
 
@@ -72,5 +73,20 @@ public class AirportMaster {
 
 	    public void setAirportCode(String airportCode) {
 	        this.airportCode = airportCode;
+	    }
+
+		public AirportMaster(Long airportId, String airportName, CityMaster city, StateMaster state, String airportCode,
+				HubMaster hub) {
+			super();
+			this.airportId = airportId;
+			this.airportName = airportName;
+			this.cityId = city;
+			this.stateId = state;
+			this.airportCode = airportCode;
+			this.hubId = hub;
+		}
+	    
+	    public AirportMaster() {
+	    	
 	    }
 }

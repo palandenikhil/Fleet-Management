@@ -13,17 +13,65 @@ public class BookingDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private Long bookingAddonId;  // Primary key, auto-generated
+    private Long bookingDetailId;  // Primary key, auto-generated
 
     @ManyToOne
-    @JoinColumn(nullable = false,referencedColumnName="bookingId")
+    @JoinColumn(nullable = false, name="bookingId",referencedColumnName="bookingId")
     private BookingHeader bookingId;  // Foreign key to Booking entity
 
-    @ManyToOne
-    @JoinColumn(nullable = false, referencedColumnName="addonid")  
-    private AddOnMaster addonId;  
+    private Long addonId;  
 
-    @OneToOne
-    @JoinColumn(nullable = false,referencedColumnName="addonid")
-    private AddOnMaster addonRate;  
+    private Double addonRate;
+
+	public Long getBookingDetailId() {
+		return bookingDetailId;
+	}
+
+	public void setBookingDetailId(Long bookingAddonId) {
+		this.bookingDetailId = bookingAddonId;
+	}
+
+	public BookingHeader getBookingId() {
+		return bookingId;
+	}
+
+	public void setBookingId(BookingHeader bookingId) {
+		this.bookingId = bookingId;
+	}
+
+	public Long getAddonId() {
+		return addonId;
+	}
+
+	public void setAddonId(Long addonId) {
+		this.addonId = addonId;
+	}
+
+	public Double getAddonRate() {
+		return addonRate;
+	}
+
+	public void setAddonRate(Double addonRate) {
+		this.addonRate = addonRate;
+	}
+
+	public BookingDetail(Long bookingAddonId, BookingHeader bookingId, Long addonId, Double addonRate) {
+		super();
+		this.bookingDetailId = bookingAddonId;
+		this.bookingId = bookingId;
+		this.addonId = addonId;
+		this.addonRate = addonRate;
+	}  
+	
+	public BookingDetail() {
+		
+	}
+
+	@Override
+	public String toString() {
+		return "BookingDetail [bookingAddonId=" + bookingDetailId + ", bookingId=" + bookingId + ", addonId=" + addonId
+				+ ", addonRate=" + addonRate + "]";
+	}
+    
+	
  }
