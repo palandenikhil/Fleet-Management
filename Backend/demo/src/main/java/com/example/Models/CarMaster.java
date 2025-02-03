@@ -18,8 +18,8 @@ public class CarMaster {
     private Long carId;  
 
     @ManyToOne
-    @JoinColumn(name = "carTypeId", nullable = false, referencedColumnName="carTypeId")
-    private CarTypeMaster carTypeId;  
+    @JoinColumn(name = "cartypeId", nullable = false, referencedColumnName="cartypeId")
+    private CarTypeMaster cartypeId;  
     
     private String carName;  
     
@@ -33,7 +33,7 @@ public class CarMaster {
 
     @ManyToOne
     @JoinColumn(name = "hubId", nullable = false, referencedColumnName="hubId") 
-    private HubMaster hub_id;  // Reference to HubMaster entity
+    private HubMaster hubId;  // Reference to HubMaster entity
     
     @Enumerated(EnumType.STRING)
     @Column(name = "Is_Available", length = 1)
@@ -54,12 +54,12 @@ public class CarMaster {
 		this.carId = carId;
 	}
 
-	public CarTypeMaster getCarTypeId() {
-		return carTypeId;
+	public CarTypeMaster getCartypeId() {
+		return cartypeId;
 	}
 
-	public void setCarTypeId(CarTypeMaster carTypeId) {
-		this.carTypeId = carTypeId;
+	public void setCarTypeId(CarTypeMaster cartypeId) {
+		this.cartypeId = cartypeId;
 	}
 
 	public String getCarName() {
@@ -86,12 +86,12 @@ public class CarMaster {
 		this.fuelStatus = fuelStatus;
 	}
 
-	public HubMaster getHub_id() {
-		return hub_id;
+	public HubMaster getHubId() {
+		return hubId;
 	}
 
-	public void setHub_id(HubMaster hub_id) {
-		this.hub_id = hub_id;
+	public void setHub_id(HubMaster hubId) {
+		this.hubId = hubId;
 	}
 
 	public AvailabilityStatus getIsAvailable() {
@@ -114,11 +114,11 @@ public class CarMaster {
 			HubMaster hub_id, AvailabilityStatus isAvailable, LocalDate maintenanceduedate) {
 		super();
 		this.carId = carId;
-		this.carTypeId = carTypeId;
+		this.cartypeId = cartypeId;
 		this.carName = carName;
 		this.numberPlate = numberPlate;
 		this.fuelStatus = fuelStatus;
-		this.hub_id = hub_id;
+		this.hubId = hubId;
 		this.isAvailable = isAvailable;
 		this.maintenanceduedate = maintenanceduedate;
 	}
@@ -129,8 +129,8 @@ public class CarMaster {
 
 	@Override
 	public String toString() {
-		return "CarMaster [carId=" + carId + ", carTypeId=" + carTypeId + ", carName=" + carName + ", numberPlate="
-				+ numberPlate + ", fuelStatus=" + fuelStatus + ", hub_id=" + hub_id + ", isAvailable=" + isAvailable
+		return "CarMaster [carId=" + carId + ", cartypeId=" + cartypeId + ", carName=" + carName + ", numberPlate="
+				+ numberPlate + ", fuelStatus=" + fuelStatus + ", hubId=" + hubId + ", isAvailable=" + isAvailable
 				+ ", maintenanceduedate=" + maintenanceduedate + "]";
 	}
 	
