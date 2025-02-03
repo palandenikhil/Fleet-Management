@@ -27,7 +27,7 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	public CustomerMaster getCustomerByEmailId(String email) {
 		// TODO Auto-generated method stub
-		return c_repository.getCustomerByEmialId(email);
+		return c_repository.getCustomerByEmailId(email);
 	}
 
 	public Optional<CustomerMaster> getCustomerByid(int id) {

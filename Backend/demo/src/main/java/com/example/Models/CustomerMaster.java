@@ -13,6 +13,7 @@ public class CustomerMaster {
     
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "customer_id")
     private int customerId;
 
     private String firstName;
