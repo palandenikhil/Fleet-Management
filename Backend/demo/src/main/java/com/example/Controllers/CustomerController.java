@@ -30,7 +30,7 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public Optional<CustomerMaster> getCustomerById(@PathVariable int id) {
-        return c_service.getCustomerid(id);
+        return c_service.getCustomerByid(id);
     }
 
     @GetMapping("/email/{email}")

@@ -40,7 +40,7 @@ public class CustomerMaster {
 
     private String drivingLicenseNumber;
 
-    private String idpNumber;
+    private String idpNumber; //International Driving Permit
 
     private String issuedByDL;
 
