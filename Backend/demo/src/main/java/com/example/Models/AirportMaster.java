@@ -21,9 +21,7 @@ public class AirportMaster {
 	    @Column(unique = true)
 	    private String airportCode;
 
-	    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	    @JoinColumn(name = "hubId",referencedColumnName = "hubId",nullable=false)
-	    private HubMaster hub;
+	   
 	    // Getters and Setters
 	    public Long getAirportId() {
 	        return airportId;
@@ -57,15 +55,6 @@ public class AirportMaster {
 	        this.state = state;
 	    }
 	    
-	    public HubMaster getHub() {
-	        return hub;
-	    }
-
-	    public void setHub(HubMaster state) {
-	        this.hub = hub;
-	    }
-
-
 	    public String getAirportCode() {
 	        return airportCode;
 	    }
@@ -74,3 +63,4 @@ public class AirportMaster {
 	        this.airportCode = airportCode;
 	    }
 }
+

@@ -1,10 +1,6 @@
 package com.example.Models;
 
 import java.time.LocalDate;
-
-import org.aspectj.apache.bcel.generic.LOOKUPSWITCH;
-import org.springframework.cglib.core.Local;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -14,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
@@ -29,7 +24,7 @@ public class InvoiceHeader {
     //private LocalDate date;
 
     @ManyToOne
-    @JoinColumn(name = "bookingid" , nullable = false,referencedColumnName = "bookingid")
+    @JoinColumn(name = "bookingId" , nullable = false,referencedColumnName = "bookingId")
     private BookingHeader booking;
     
     private String cName; 
@@ -39,12 +34,12 @@ public class InvoiceHeader {
 	private String cPassNo; 
 
     @ManyToOne
-    @JoinColumn(name = "customerId" , nullable = false,referencedColumnName = "customerId")
+    @JoinColumn(name = "customerId" , nullable = false)
     private CustomerMaster customer;
     
-    private int pickup_hubId;
+    private Long pickup_hubId;
     	
-    private int return_hubId;
+    private Long return_hubId;
 
     @Enumerated(EnumType.STRING)
 	@Column(name = "isReturned", length = 1)
@@ -55,19 +50,19 @@ public class InvoiceHeader {
         Y, N
     }
 	 
-    public int getPickup_hubId() {
+    public Long getPickup_hubId() {
 		return pickup_hubId;
 	}
 
-	public void setPickup_hubId(int pickup_hubId) {
+	public void setPickup_hubId(Long pickup_hubId) {
 		this.pickup_hubId = pickup_hubId;
 	}
 
-	public int getReturn_hubId() {
+	public Long getReturn_hubId() {
 		return return_hubId;
 	}
 
-	public void setReturn_hubId(int return_hubId) {
+	public void setReturn_hubId(Long return_hubId) {
 		this.return_hubId = return_hubId;
 	}
     
@@ -115,7 +110,7 @@ public class InvoiceHeader {
     private LocalDate handoverDate;
 
     @ManyToOne
-    @JoinColumn(name = "carId" , nullable = false,referencedColumnName = "carId")
+    @JoinColumn(name = "carId" , nullable = false)
     private CarMaster car;
 
     @Temporal(TemporalType.DATE)
@@ -245,8 +240,35 @@ public class InvoiceHeader {
 				+ totalAmt + ", rate=" + rate + "]";
 	}
 
+	public InvoiceHeader(Long invoiceId, BookingHeader booking, String cName, String cEmailId, String cMobileNo,
+			String cAadharNo, String cPassNo, CustomerMaster customer, Long pickup_hubId, Long return_hubId,
+			Return_Status isReturned, LocalDate handoverDate, CarMaster car, LocalDate returnDate, double rentalAmt,
+			double totalAddOnAmt, double totalAmt, String rate) {
+		super();
+		this.invoiceId = invoiceId;
+		this.booking = booking;
+		this.cName = cName;
+		this.cEmailId = cEmailId;
+		this.cMobileNo = cMobileNo;
+		this.cAadharNo = cAadharNo;
+		this.cPassNo = cPassNo;
+		this.customer = customer;
+		this.pickup_hubId = pickup_hubId;
+		this.return_hubId = return_hubId;
+		this.isReturned = isReturned;
+		this.handoverDate = handoverDate;
+		this.car = car;
+		this.returnDate = returnDate;
+		this.rentalAmt = rentalAmt;
+		this.totalAddOnAmt = totalAddOnAmt;
+		this.totalAmt = totalAmt;
+		this.rate = rate;
+	}
 
 
+	public InvoiceHeader() {
+		
+	}
 	
 
     

@@ -68,5 +68,26 @@ public class CarTypeMaster {
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
+
+	@Override
+	public String toString() {
+		return "CarTypeMaster [cartypeId=" + cartypeId + ", carTypeName=" + carTypeName + ", dailyRate=" + dailyRate
+				+ ", weeklyRate=" + weeklyRate + ", monthlyRate=" + monthlyRate + ", imagePath=" + imagePath + "]";
+	}
+
+	public CarTypeMaster(Long cartypeId, String carTypeName, Double dailyRate, Double weeklyRate, Double monthlyRate,
+			String imagePath) {
+		super();
+		this.cartypeId = cartypeId;
+		this.carTypeName = carTypeName;
+		this.dailyRate = dailyRate;
+		this.weeklyRate = weeklyRate;
+		this.monthlyRate = monthlyRate;
+		this.imagePath = imagePath;
+	}
+    
+    public CarTypeMaster() {
+    	
+    }
 }
 

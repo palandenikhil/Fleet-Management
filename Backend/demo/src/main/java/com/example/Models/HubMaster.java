@@ -1,7 +1,6 @@
- package com.example.Models;
+package com.example.Models;
 
 import jakarta.persistence.*;
-
 
 @Entity
 public class HubMaster {
@@ -10,19 +9,23 @@ public class HubMaster {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long hubId;
 
-    private String hubName;
-
-    private String hubAddress;
-    
-    @Column(unique = true) 
+    @Column(unique = true)
     private Long contactNumber;
 
-    @ManyToOne
-    @JoinColumn(name = "cityId",referencedColumnName = "cityId" ,nullable = false)
+    private String hubAddress;
+
+    private String hubName;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "airportId", referencedColumnName = "airportId", nullable = false)
+    private AirportMaster airport;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "cityId", referencedColumnName = "cityId", nullable = false)
     private CityMaster city;
 
-    @ManyToOne
-    @JoinColumn(name = "stateId", referencedColumnName = "stateId",nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "stateId", referencedColumnName = "stateId", nullable = false)
     private StateMaster state;
 
     // Getters and Setters
@@ -34,12 +37,12 @@ public class HubMaster {
         this.hubId = hubId;
     }
 
-    public String getHubName() {
-        return hubName;
+    public Long getContactNumber() {
+        return contactNumber;
     }
 
-    public void setHubName(String hubName) {
-        this.hubName = hubName;
+    public void setContactNumber(Long contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public String getHubAddress() {
@@ -48,6 +51,22 @@ public class HubMaster {
 
     public void setHubAddress(String hubAddress) {
         this.hubAddress = hubAddress;
+    }
+
+    public String getHubName() {
+        return hubName;
+    }
+
+    public void setHubName(String hubName) {
+        this.hubName = hubName;
+    }
+
+    public AirportMaster getAirport() {
+        return airport;
+    }
+
+    public void setAirport(AirportMaster airport) {
+        this.airport = airport;
     }
 
     public CityMaster getCity() {
