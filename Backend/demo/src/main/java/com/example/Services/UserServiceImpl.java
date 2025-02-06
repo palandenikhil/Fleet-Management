@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.Models.UserDetails;
+import com.example.Models.UserLogin;
 import com.example.Repositories.UserRepository;
 
 @Service
@@ -16,24 +16,24 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepos;
 
 	@Override
-	public void addUser(UserDetails user) {
+	public void addUser(UserLogin user) {
 		userRepos.save(user);		
 	}
 
 	@Override
-	public List<UserDetails> getAllUser() {
+	public List<UserLogin> getAllUser() {
 		// TODO Auto-generated method stub
 		return userRepos.findAll();
 	}
 
 	@Override
-	public UserDetails getUserByEmailId(String email) {
+	public UserLogin getUserByEmailId(String email) {
 		// TODO Auto-generated method stub
 		return userRepos.findByEmail(email);
 	}
 
 	@Override
-	public Optional<UserDetails> getUserByid(int id) {
+	public Optional<UserLogin> getUserByid(int id) {
 		// TODO Auto-generated method stub
 		return userRepos.findById((long) id);
 	}
@@ -41,15 +41,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void removeByEmail(String email) {
 		// TODO Auto-generated method stub
-		UserDetails user=userRepos.findByEmail(email);
+		UserLogin user=userRepos.findByEmail(email);
 		if(user!=null) {
 			userRepos.delete(user);
 		}
 	}
 
 	@Override
-	public void updateUserByEmail(String email, UserDetails user) {
-		UserDetails existingUser = userRepos.findByEmail(email);
+	public void updateUserByEmail(String email, UserLogin user) {
+		UserLogin existingUser = userRepos.findByEmail(email);
         if (existingUser != null) {
             existingUser.setUserName(user.getUserName());
             existingUser.setLastName(user.getLastName());

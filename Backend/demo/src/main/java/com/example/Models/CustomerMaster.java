@@ -13,7 +13,8 @@ public class CustomerMaster {
     
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int customerId;
+	@Column(name = "customer_id")
+    private Long customerId;
 
     private String firstName;
 
@@ -58,11 +59,11 @@ public class CustomerMaster {
 
     private LocalDate dateOfBirth;
 
-	public int getCustomerId() {
+	public Long getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
 
@@ -237,7 +238,7 @@ public class CustomerMaster {
 	public CustomerMaster() {
 		
 	}
-	public CustomerMaster(int customerId, String firstName, String lastName, String addressLine1, String addressLine2,
+	public CustomerMaster(Long customerId, String firstName, String lastName, String addressLine1, String addressLine2,
 			String email, String city, String pincode, String phoneNumber, String mobileNumber, String creditCardType,
 			String creditCardNumber, String drivingLicenseNumber, String idpNumber, String issuedByDL,
 			LocalDate validThroughDL, String passportNumber, LocalDate passportValidThrough, String passportIssuedBy,
@@ -280,5 +281,6 @@ public class CustomerMaster {
 				+ ", dateOfBirth=" + dateOfBirth + "]";
 	}
 
+	
     
 } 

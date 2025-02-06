@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.Models.UserDetails;
+import com.example.Models.UserLogin;
 import com.example.Services.UserService;
 
 @RestController
@@ -24,23 +24,23 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/add")
-	public UserDetails addUser(@RequestBody UserDetails user) {
+	public UserLogin addUser(@RequestBody UserLogin user) {
 		userService.addUser(user);
 		return user;
 	}
 	
 	@GetMapping
-	public List<UserDetails> getAllUser(){
+	public List<UserLogin> getAllUser(){
 		return userService.getAllUser();
 	}
 	
 	@GetMapping("/{email}")
-	public UserDetails getUserByEmailId(@PathVariable String email) {
+	public UserLogin getUserByEmailId(@PathVariable String email) {
 		return userService.getUserByEmailId(email);
 	}
 	
 	@GetMapping("/id/{id}")
-	public Optional<UserDetails> getUserById(@PathVariable int id) {
+	public Optional<UserLogin> getUserById(@PathVariable int id) {
 		return userService.getUserByid(id);
 	}
 	
@@ -50,7 +50,7 @@ public class UserController {
     }
 	
 	@PutMapping("/update/{email}")
-    public UserDetails updateUserByEmail(@PathVariable String email, @RequestBody UserDetails user) {
+    public UserLogin updateUserByEmail(@PathVariable String email, @RequestBody UserLogin user) {
         userService.updateUserByEmail(email, user);
         return userService.getUserByEmailId(email);
     }

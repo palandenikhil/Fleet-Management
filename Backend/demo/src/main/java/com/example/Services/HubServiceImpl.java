@@ -1,36 +1,30 @@
 package com.example.Services;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
+import com.example.Models.HubMaster;
+import com.example.Repositories.HubRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.Models.HubMaster;
-import com.example.Repositories.HubRepository;
+import java.util.List;
 
 @Service
 public class HubServiceImpl implements HubService {
-	
-	@Autowired
-	private HubRepository hubRepository;
 
-	@Override
-	public List<HubMaster> getHubsByCity(Long cityId) {
-		 return hubRepository.findAll().stream()
-	                .filter(hub -> hub.getCity().getCityId().equals(cityId)) 
-	                .collect(Collectors.toList());	 
-	}
+    @Autowired
+    private HubRepository hubRepository;
 
-	@Override
-	public List<HubMaster> getAllHubs() {
-		return hubRepository.findAll();
-	}
+    @Override
+    public List<HubMaster> getAllHubs() {
+        return hubRepository.findAll();
+    }
 
-	@Override
-    public List<HubMaster> getHubsByState(Long stateId) {
-        return hubRepository.findAll().stream()
-                .filter(hub -> hub.getState().getStateId().equals(stateId))
-                .toList();
-    }	
+    @Override
+    public List<HubMaster> getHubsByCityId(Long cityId) {
+        return hubRepository.findByCity_CityId(cityId);
+    }
+
+    @Override
+    public List<HubMaster> getHubsByAirportCode(String airportCode) {
+        return hubRepository.findByAirport_AirportCode(airportCode);
+    }
 }

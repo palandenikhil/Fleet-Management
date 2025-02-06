@@ -1,4 +1,6 @@
 package com.example.Models;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +19,7 @@ public class BookingDetail {
 
     @ManyToOne
     @JoinColumn(nullable = false, name="bookingId",referencedColumnName="bookingId")
+    @JsonBackReference // Prevent infinite recursion
     private BookingHeader bookingId;  // Foreign key to Booking entity
 
     private Long addonId;  

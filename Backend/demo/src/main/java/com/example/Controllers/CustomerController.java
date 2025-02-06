@@ -29,12 +29,12 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public Optional<CustomerMaster> getCustomerById(@PathVariable int id) {
+    public Optional<CustomerMaster> getCustomerById(@PathVariable Long id) {
         return c_service.getCustomerByid(id);
     }
 
     @GetMapping("/email/{email}")
-    public CustomerMaster getCustomerByEmailId(@PathVariable String email) {
+    public Optional<CustomerMaster> getCustomerByEmailId(@PathVariable String email) {
         return c_service.getCustomerByEmailId(email);
     }
 
@@ -44,12 +44,12 @@ public class CustomerController {
     }
 
     @PutMapping("/{id}")
-    public void updateCustomer(@PathVariable int id, @RequestBody CustomerMaster updatedCustomer) {
+    public void updateCustomer(@PathVariable Long id, @RequestBody CustomerMaster updatedCustomer) {
         c_service.updateCustomer(id, updatedCustomer);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCustomer(@PathVariable int id) {
+    public void deleteCustomer(@PathVariable Long id) {
         c_service.deleteCustomer(id);
     }
     

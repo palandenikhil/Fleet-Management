@@ -28,8 +28,8 @@ public class CarMasterService {
     
     public Optional<CarMaster> updateCar(Long id, CarMaster carDetails) {
         return carMasterRepository.findById(id).map(car -> {
-            car.setCarTypeId(carDetails.getCartypeId());
-            car.setHub_id(carDetails.getHubId());
+            car.setCarTypeId(carDetails.getCarTypeId());
+            car.setHub_id(carDetails.getHub_id());
             car.setIsAvailable(carDetails.getIsAvailable());
             car.setMaintenanceduedate(carDetails.getMaintenanceduedate());
             return carMasterRepository.save(car);

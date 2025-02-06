@@ -17,20 +17,16 @@ public class AirportMasterImpl implements AirportMasterService {
 
     @Override
     public List<AirportMaster> getAllAirports() {
-        // Fetch and return all airports from the repository
         return airportMasterRepository.findAll();
     }
 
     @Override
-    public Optional<AirportMaster> getAirportByCode(String code) {
-        return airportMasterRepository.findByAirportCode(code);
+    public Optional<AirportMaster> getAirportById(long id) {
+        return airportMasterRepository.findById(id);
     }
 
-    @Override
-    public Optional<AirportMaster> getAirportByName(String name) {
-        return airportMasterRepository.findByAirportName(name);
-    }
-
-    
-    
+	@Override
+	public Optional<AirportMaster> getAirportByCode(String airportCode) {
+        return airportMasterRepository.findByAirportCode(airportCode);
+	}
 }
