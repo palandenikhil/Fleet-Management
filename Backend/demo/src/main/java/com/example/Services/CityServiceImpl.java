@@ -15,7 +15,7 @@ public class CityServiceImpl implements CityService {
 	private CityRepository cityRepository;
 	
 	@Override
-	public List<CityMaster> getCitiesByState(Long StateId){
-		return cityRepository.findAll().stream().filter(city -> city.getState().getStateId().equals(StateId)).toList();
+	public List<CityMaster> getCitiesByState(Long stateId) {
+	    return cityRepository.findByState_StateId(stateId);
 	}
 }

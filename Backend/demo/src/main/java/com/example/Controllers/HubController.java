@@ -3,10 +3,7 @@ package com.example.Controllers;
 import com.example.Models.HubMaster;
 import com.example.Services.HubService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,18 +14,18 @@ public class HubController {
     @Autowired
     private HubService hubService;
 
-    @GetMapping("/city/{cityId}")
-    public List<HubMaster> getHubsByCity(@PathVariable Long cityId) {
-        return hubService.getHubsByCity(cityId);
-    }
-    
     @GetMapping
-    public List<HubMaster> getAllHubs(){
-    	return hubService.getAllHubs();
+    public List<HubMaster> getAllHubs() {
+        return hubService.getAllHubs();
     }
-    
-    @GetMapping("/state/{stateId}")
-    public List<HubMaster> getHubByState(@PathVariable Long stateId){
-    	return hubService.getHubsByState(stateId);
+
+    @GetMapping("/city/{cityId}")
+    public List<HubMaster> getHubsByCityId(@PathVariable Long cityId) {
+        return hubService.getHubsByCityId(cityId);
+    }
+
+    @GetMapping("/airportCode/{airportCode}")
+    public List<HubMaster> getHubsByAirportCode(@PathVariable String airportCode) {
+        return hubService.getHubsByAirportCode(airportCode);
     }
 }

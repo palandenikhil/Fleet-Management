@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "booking")
 @Data
@@ -25,7 +27,7 @@ public class BookingHeader {
    
     @ManyToOne
     @JoinColumn(name = "customerId")
-    private CustomerMaster customerId;  
+    private CustomerMaster customer;  
 
     @Column(nullable = false)
     private LocalDate startdate;  
@@ -34,14 +36,17 @@ public class BookingHeader {
     private LocalDate enddate;  
     
     @ManyToOne
-    @JoinColumn(name = "carId",referencedColumnName = "carId", nullable = false)  
-    private CarTypeMaster carId;  
+    @JoinColumn(name = "carId", nullable = false)  
+    private CarMaster car;  
 
     @ManyToOne
     @JoinColumn(name = "cartypeId",referencedColumnName = "cartypeId", nullable = false)  
-    private CarTypeMaster cartypeId;  
+    private CarTypeMaster cartype;  
     
-    @OneToMany(mappedBy = "booking", cascade = CascadeType.ALL, orphanRemoval = true)
+  
+
+    @OneToMany(mappedBy = "bookingId", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference // Prevent infinite recursion
     private List<BookingDetail> bookingDetails = new ArrayList<BookingDetail>();
 
     
@@ -103,27 +108,27 @@ public class BookingHeader {
 	}
 
 	public CustomerMaster getCustomer() {
-		return customerId;
+		return customer;
 	}
 
 	public void setCustomer(CustomerMaster customer) {
-		this.customerId = customerId;
+		this.customer = customer;
 	}
 
-	public CarTypeMaster getCarId() {
-		return carId;
+	public CarMaster getCar() {
+		return car;
 	}
 
-	public void setCarId(CarTypeMaster carId) {
-		this.carId = carId;
+	public void setCar(CarMaster car) {
+		this.car = car;
 	}
 
-	public CarTypeMaster getCartypeId() {
-		return cartypeId;
+	public CarTypeMaster getCartype() {
+		return cartype;
 	}
 
-	public void setCartypeId(CarTypeMaster cartypeId) {
-		this.cartypeId = cartypeId;
+	public void setCartype(CarTypeMaster cartype) {
+		this.cartype = cartype;
 	}
 
 	public List<BookingDetail> getBookingDetails() {
@@ -147,11 +152,11 @@ public class BookingHeader {
 	}
 
 	public CarTypeMaster getCartypeid() {
-		return cartypeId;
+		return cartype;
 	}
 
-	public void setCartypeid(CarTypeMaster cartypeId) {
-		this.cartypeId = cartypeId;
+	public void setCartypeid(CarTypeMaster cartype) {
+		this.cartype = cartype;
 	}
 
 	
@@ -165,11 +170,11 @@ public class BookingHeader {
 	}
 
 	public CustomerMaster getCustomerId() {
-		return customerId;
+		return customer;
 	}
 
-	public void setCustomerId(CustomerMaster customerId) {
-		this.customerId = customerId;
+	public void setCustomerId(CustomerMaster customer) {
+		this.customer = customer;
 	}
 
 	public String getFirstname() {
@@ -262,18 +267,18 @@ public class BookingHeader {
 
 	
     
-    public BookingHeader(Long bookingId, LocalDate bookingdate, CustomerMaster customerId, LocalDate startdate,
-			LocalDate enddate, CarTypeMaster carId, CarTypeMaster cartypeId, List<BookingDetail> bookingDetails,
+    public BookingHeader(Long bookingId, LocalDate bookingdate, CustomerMaster customer, LocalDate startdate,
+			LocalDate enddate, CarMaster car, CarTypeMaster cartype, List<BookingDetail> bookingDetails,
 			String firstname, String lastname, String address, String state, String pin, String emailId,
 			Double dailyrate, Double weeklyrate, Double monthlyrate, int pickup_hubId, int return_hubId) {
 		super();
 		this.bookingId = bookingId;
 		this.bookingdate = bookingdate;
-		this.customerId = customerId;
+		this.customer = customer;
 		this.startdate = startdate;
 		this.enddate = enddate;
-		this.carId = carId;
-		this.cartypeId = cartypeId;
+		this.car = car;
+		this.cartype = cartype;
 		this.bookingDetails = bookingDetails;
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -294,8 +299,8 @@ public class BookingHeader {
 
 	@Override
 	public String toString() {
-		return "BookingHeader [bookingId=" + bookingId + ", bookingdate=" + bookingdate + ", customerId=" + customerId
-				+ ", startdate=" + startdate + ", enddate=" + enddate + ", carId=" + carId + ", cartypeId=" + cartypeId
+		return "BookingHeader [bookingId=" + bookingId + ", bookingdate=" + bookingdate + ", customerId=" + customer
+				+ ", startdate=" + startdate + ", enddate=" + enddate + ", carId=" + car + ", cartypeId=" + cartype
 				+ ", bookingDetails=" + bookingDetails + ", firstname=" + firstname + ", lastname=" + lastname
 				+ ", address=" + address + ", state=" + state + ", pin=" + pin + ", emailId=" + emailId + ", dailyrate="
 				+ dailyrate + ", weeklyrate=" + weeklyrate + ", monthlyrate=" + monthlyrate + ", pickup_hubId="

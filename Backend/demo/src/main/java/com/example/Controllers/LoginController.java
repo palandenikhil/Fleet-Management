@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.Models.UserDetails;
+import com.example.Models.UserLogin;
 import com.example.Services.LoginService;
 
 @RestController
@@ -19,7 +19,7 @@ public class LoginController {
     private LoginService loginService;
 
     @GetMapping
-    public UserDetails login(@RequestParam String email, @RequestParam String password) {
+    public UserLogin login(@RequestParam String email, @RequestParam String password) {
         return loginService.getLogin(email, password);
     }
     

@@ -16,54 +16,51 @@ import com.example.Services.AddOnMasterService;
 public class AddOnMasterController {
 
     @Autowired
-    private AddOnMasterService addOnMasterService; // Autowiring the service to interact with the database
+    private AddOnMasterService addOnMasterService; 
 
-    // Endpoint to get all AddOns
+
     @GetMapping
     public ResponseEntity<List<AddOnMaster>> getAllAddOns() {
         List<AddOnMaster> addOns = addOnMasterService.getAllAddOns();
         if (addOns.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT); // No content found
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT); 
         }
-        return new ResponseEntity<>(addOns, HttpStatus.OK); // Return list of AddOns
+        return new ResponseEntity<>(addOns, HttpStatus.OK); 
     }
 
-    // Endpoint to get an AddOn by its ID
+    
     @GetMapping("/{addonId}")
     public ResponseEntity<AddOnMaster> getAddOnById(@PathVariable Long addonId) {
         AddOnMaster addOnMaster = addOnMasterService.getAddOnById(addonId);
         if (addOnMaster == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Return 404 if AddOn is not found
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(addOnMaster, HttpStatus.OK); // Return AddOn if found
+        return new ResponseEntity<>(addOnMaster, HttpStatus.OK); 
     }
 
-    // Endpoint to delete an AddOn by its ID
+    
     @DeleteMapping("/{addonId}")
     public ResponseEntity<String> deleteAddOnById(@PathVariable Long addonId) {
         AddOnMaster addOnMaster = addOnMasterService.deleteAddOnById(addonId);
         if (addOnMaster == null) {
-            return new ResponseEntity<>("AddOn not found", HttpStatus.NOT_FOUND); // 404 if not found
+            return new ResponseEntity<>("AddOn not found", HttpStatus.NOT_FOUND); 
         }
-        return new ResponseEntity<>("AddOn deleted successfully", HttpStatus.OK); // Success message
+        return new ResponseEntity<>("AddOn deleted successfully", HttpStatus.OK); 
     }
 
-    // Endpoint to update an AddOn
     @PutMapping("/{addonId}")
     public ResponseEntity<AddOnMaster> updateAddOn(
             @PathVariable Long addonId,
             @RequestBody AddOnMaster updatedAddOn) {
         AddOnMaster updated = addOnMasterService.updateAddOn(addonId, updatedAddOn);
         if (updated == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND); // Return 404 if AddOn to update is not found
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(updated, HttpStatus.OK); // Return updated AddOn
+        return new ResponseEntity<>(updated, HttpStatus.OK); 
     }
 
-    // Endpoint to create a new AddOn (Optional, if required)
     @PostMapping
     public ResponseEntity<AddOnMaster> createAddOn(@RequestBody AddOnMaster addOnMaster) {
-        AddOnMaster createdAddOn = addOnMasterService.createAddOn(addOnMaster); // Assuming you create a createAddOn method in the service
-        return new ResponseEntity<>(createdAddOn, HttpStatus.CREATED); // Return created AddOn with status 201
-    }
+        AddOnMaster createdAddOn = addOnMasterService.createAddOn(addOnMaster); 
+        return new ResponseEntity<>(createdAddOn, HttpStatus.CREATED);     }
 }

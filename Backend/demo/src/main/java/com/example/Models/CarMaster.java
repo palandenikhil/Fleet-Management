@@ -18,8 +18,8 @@ public class CarMaster {
     private Long carId;  
 
     @ManyToOne
-    @JoinColumn(name = "cartypeId", nullable = false, referencedColumnName="cartypeId")
-    private CarTypeMaster cartypeId;  
+    @JoinColumn(name = "cartypeId", nullable = false)
+    private CarTypeMaster cartypeId;  	
     
     private String carName;  
     
@@ -33,7 +33,7 @@ public class CarMaster {
 
     @ManyToOne
     @JoinColumn(name = "hubId", nullable = false, referencedColumnName="hubId") 
-    private HubMaster hubId;  // Reference to HubMaster entity
+    private HubMaster hub_id;  // Reference to HubMaster entity
     
     @Enumerated(EnumType.STRING)
     @Column(name = "Is_Available", length = 1)
@@ -54,12 +54,12 @@ public class CarMaster {
 		this.carId = carId;
 	}
 
-	public CarTypeMaster getCartypeId() {
+	public CarTypeMaster getCarTypeId() {
 		return cartypeId;
 	}
 
-	public void setCarTypeId(CarTypeMaster cartypeId) {
-		this.cartypeId = cartypeId;
+	public void setCarTypeId(CarTypeMaster carTypeId) {
+		this.cartypeId = carTypeId;
 	}
 
 	public String getCarName() {
@@ -86,12 +86,12 @@ public class CarMaster {
 		this.fuelStatus = fuelStatus;
 	}
 
-	public HubMaster getHubId() {
-		return hubId;
+	public HubMaster getHub_id() {
+		return hub_id;
 	}
 
-	public void setHub_id(HubMaster hubId) {
-		this.hubId = hubId;
+	public void setHub_id(HubMaster hub_id) {
+		this.hub_id = hub_id;
 	}
 
 	public AvailabilityStatus getIsAvailable() {
@@ -110,7 +110,7 @@ public class CarMaster {
 		this.maintenanceduedate = maintenanceduedate;
 	}
 
-	public CarMaster(Long carId, CarTypeMaster carTypeId, String carName, String numberPlate, String fuelStatus,
+	public CarMaster(Long carId, CarTypeMaster cartypeId, String carName, String numberPlate, String fuelStatus,
 			HubMaster hub_id, AvailabilityStatus isAvailable, LocalDate maintenanceduedate) {
 		super();
 		this.carId = carId;
@@ -118,7 +118,7 @@ public class CarMaster {
 		this.carName = carName;
 		this.numberPlate = numberPlate;
 		this.fuelStatus = fuelStatus;
-		this.hubId = hubId;
+		this.hub_id = hub_id;
 		this.isAvailable = isAvailable;
 		this.maintenanceduedate = maintenanceduedate;
 	}
@@ -129,8 +129,8 @@ public class CarMaster {
 
 	@Override
 	public String toString() {
-		return "CarMaster [carId=" + carId + ", cartypeId=" + cartypeId + ", carName=" + carName + ", numberPlate="
-				+ numberPlate + ", fuelStatus=" + fuelStatus + ", hubId=" + hubId + ", isAvailable=" + isAvailable
+		return "CarMaster [carId=" + carId + ", carTypeId=" + cartypeId + ", carName=" + carName + ", numberPlate="
+				+ numberPlate + ", fuelStatus=" + fuelStatus + ", hub_id=" + hub_id + ", isAvailable=" + isAvailable
 				+ ", maintenanceduedate=" + maintenanceduedate + "]";
 	}
 	
