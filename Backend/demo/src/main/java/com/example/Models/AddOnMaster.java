@@ -54,6 +54,17 @@ public class AddOnMaster {
 			return "AddOnMaster [addonId=" + addonId + ", addonName=" + addonName + ", addonDailyRate=" + addonDailyRate
 					+ ", rateValidUpto=" + rateValidUpto + "]";
 		}
+
+		public AddOnMaster(Long addonId, String addonName, Double addonDailyRate, LocalDate rateValidUpto) {
+			super();
+			this.addonId = addonId;
+			this.addonName = addonName;
+			this.addonDailyRate = addonDailyRate;
+			this.rateValidUpto = rateValidUpto;
+		}
 	    
-	    
+	    public AddOnMaster()
+	    {
+	    	
+	    }
 }

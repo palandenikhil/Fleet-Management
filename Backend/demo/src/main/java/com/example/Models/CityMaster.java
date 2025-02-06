@@ -47,5 +47,18 @@ public class CityMaster {
 	    public void setState(StateMaster state) {
 	        this.state = state;
     }
+
+		public CityMaster(Long cityId, String cityName, StateMaster state) {
+			super();
+			this.cityId = cityId;
+			this.cityName = cityName;
+			this.state = state;
+		}
+
+		@Override
+		public String toString() {
+			return "CityMaster [cityId=" + cityId + ", cityName=" + cityName + ", state=" + state + "]";
+		}
+	  
 }
 
