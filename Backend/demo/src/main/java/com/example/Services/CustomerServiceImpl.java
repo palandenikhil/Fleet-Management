@@ -25,21 +25,21 @@ public class CustomerServiceImpl implements CustomerService{
 		return c_repository.findAll();
 	}
 	
-	public CustomerMaster getCustomerByEmailId(String email) {
+	public Optional<CustomerMaster> getCustomerByEmailId(String email) {
 		// TODO Auto-generated method stub
 		return c_repository.getCustomerByEmailId(email);
 	}
 
-	public Optional<CustomerMaster> getCustomerByid(int id) {
+	public Optional<CustomerMaster> getCustomerByid(Long id) {
 		// TODO Auto-generated method stub
 		return c_repository.findById(id);
 	}
 	
-	 public void updateCustomer(int id, CustomerMaster updatedCustomer) {
+	 public void updateCustomer(Long id, CustomerMaster updatedCustomer) {
 	        c_repository.updateCustomer(id, updatedCustomer.getFirstName(), updatedCustomer.getLastName(), updatedCustomer.getEmail());
 	    }
 	 
-	 public void deleteCustomer(int id) {
+	 public void deleteCustomer(Long id) {
 	        c_repository.deleteCustomer(id);
 	    }
 

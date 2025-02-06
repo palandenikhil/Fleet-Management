@@ -3,14 +3,14 @@ package com.example.Services;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.Models.UserDetails;
+import com.example.Models.UserLogin;
 
 
 public interface UserService {
-	 void addUser(UserDetails user);
-	 List<UserDetails> getAllUser();
-	 UserDetails getUserByEmailId(String email);
-	 Optional<UserDetails> getUserByid(int email);
+	 void addUser(UserLogin user);
+	 List<UserLogin> getAllUser();
+	 UserLogin getUserByEmailId(String email);
+	 Optional<UserLogin> getUserByid(int email);
 	 void removeByEmail(String email);
-	 void updateUserByEmail(String email,UserDetails user);
+	 void updateUserByEmail(String email,UserLogin user);
 }

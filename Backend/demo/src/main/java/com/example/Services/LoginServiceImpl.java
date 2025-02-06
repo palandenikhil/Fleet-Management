@@ -3,7 +3,7 @@ package com.example.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.Models.UserDetails;
+import com.example.Models.UserLogin;
 import com.example.Repositories.LoginRepository;
 
 @Service
@@ -13,7 +13,7 @@ public class LoginServiceImpl implements LoginService{
 	private LoginRepository loginRepos;
 	
 	@Override
-	public UserDetails getLogin(String email, String password) {
+	public UserLogin getLogin(String email, String password) {
 		// TODO Auto-generated method stub
 		return loginRepos.getLogin(email, password);
 	}

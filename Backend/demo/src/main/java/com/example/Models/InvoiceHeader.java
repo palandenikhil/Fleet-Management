@@ -34,12 +34,12 @@ public class InvoiceHeader {
 	private String cPassNo; 
 
     @ManyToOne
-    @JoinColumn(name = "customerId" , nullable = false,referencedColumnName = "customerId")
+    @JoinColumn(name = "customerId" , nullable = false)
     private CustomerMaster customer;
     
-    private int pickup_hubId;
+    private Long pickup_hubId;
     	
-    private int return_hubId;
+    private Long return_hubId;
 
     @Enumerated(EnumType.STRING)
 	@Column(name = "isReturned", length = 1)
@@ -50,19 +50,19 @@ public class InvoiceHeader {
         Y, N
     }
 	 
-    public int getPickup_hubId() {
+    public Long getPickup_hubId() {
 		return pickup_hubId;
 	}
 
-	public void setPickup_hubId(int pickup_hubId) {
+	public void setPickup_hubId(Long pickup_hubId) {
 		this.pickup_hubId = pickup_hubId;
 	}
 
-	public int getReturn_hubId() {
+	public Long getReturn_hubId() {
 		return return_hubId;
 	}
 
-	public void setReturn_hubId(int return_hubId) {
+	public void setReturn_hubId(Long return_hubId) {
 		this.return_hubId = return_hubId;
 	}
     
@@ -110,7 +110,7 @@ public class InvoiceHeader {
     private LocalDate handoverDate;
 
     @ManyToOne
-    @JoinColumn(name = "carId" , nullable = false,referencedColumnName = "carId")
+    @JoinColumn(name = "carId" , nullable = false)
     private CarMaster car;
 
     @Temporal(TemporalType.DATE)
@@ -241,7 +241,7 @@ public class InvoiceHeader {
 	}
 
 	public InvoiceHeader(Long invoiceId, BookingHeader booking, String cName, String cEmailId, String cMobileNo,
-			String cAadharNo, String cPassNo, CustomerMaster customer, int pickup_hubId, int return_hubId,
+			String cAadharNo, String cPassNo, CustomerMaster customer, Long pickup_hubId, Long return_hubId,
 			Return_Status isReturned, LocalDate handoverDate, CarMaster car, LocalDate returnDate, double rentalAmt,
 			double totalAddOnAmt, double totalAmt, String rate) {
 		super();

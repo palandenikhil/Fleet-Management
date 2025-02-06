@@ -9,9 +9,9 @@ public interface CustomerService
 {
 	void addCustomer(CustomerMaster customer);
 	 List<CustomerMaster> getAllCustomers();
-	 CustomerMaster getCustomerByEmailId(String email);
-	 Optional<CustomerMaster> getCustomerByid(int id);
-	 void updateCustomer(int id, CustomerMaster updatedCustomer);
-	 void deleteCustomer(int id);
+	 Optional<CustomerMaster> getCustomerByEmailId(String email);
+	 Optional<CustomerMaster> getCustomerByid(Long id);
+	 void updateCustomer(Long id, CustomerMaster updatedCustomer);
+	 void deleteCustomer(Long id);
 	// boolean login(String email,String password);
 }

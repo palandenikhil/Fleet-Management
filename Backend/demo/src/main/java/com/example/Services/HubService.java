@@ -1,14 +1,13 @@
 package com.example.Services;
 
+import com.example.Models.HubMaster;
 import java.util.List;
 
-import com.example.Models.HubMaster;
-
 public interface HubService {
-	public List<HubMaster> getHubsByCity(Long cityId);
-	
-	public List<HubMaster> getAllHubs();
-	
-	public List<HubMaster> getHubsByState(Long stateId);
-	
+
+    List<HubMaster> getAllHubs();
+
+    List<HubMaster> getHubsByCityId(Long cityId);
+
+    List<HubMaster> getHubsByAirportCode(String airportCode);
 }
