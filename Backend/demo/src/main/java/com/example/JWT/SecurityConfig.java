@@ -32,8 +32,8 @@ public class SecurityConfig {
             security.addFilterAfter(new JWTTokenGenerationFilter(), BasicAuthenticationFilter.class);
             security.addFilterBefore(new JWTTokenValidatorFilter(), BasicAuthenticationFilter.class);
             security.authorizeHttpRequests(Auth -> Auth
-            	    .requestMatchers("/auth/register", "/auth/signIn").permitAll() // Allow unauthenticated access
-         	    .requestMatchers("/**").authenticated());  // Require authentication for other routes
+            	    .requestMatchers("/auth/register", "/auth/signIn","/api/cartype/all").permitAll() // Allow unauthenticated access
+         	    .requestMatchers("/**").permitAll());  // Require authentication for other routes
 
             security.httpBasic(Customizer.withDefaults());
 
@@ -41,7 +41,7 @@ public class SecurityConfig {
                 @Override
                 public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
                      CorsConfiguration cfg = new CorsConfiguration();
-                     cfg.setAllowedOrigins(Collections.singletonList("*"));
+                     cfg.setAllowedOrigins(Collections.singletonList("http://localhost:3000"));
                      cfg.setAllowedMethods(Collections.singletonList("*"));
                      cfg.setAllowedHeaders(Collections.singletonList("*"));
                      cfg.setAllowCredentials(true);

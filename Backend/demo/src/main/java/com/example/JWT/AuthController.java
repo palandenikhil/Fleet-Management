@@ -19,6 +19,7 @@ import io.jsonwebtoken.security.Keys;
 
 @RestController
 @RequestMapping("/auth")
+@CrossOrigin
 public class AuthController {
 
     @Autowired

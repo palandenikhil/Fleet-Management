@@ -1,0 +1,79 @@
+.booking-form .form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 50px;
+    margin-right: 10px;
+  }
+  
+  .booking-form .form-control,
+  .booking-form .form-select { 
+    border-radius: 0;
+    margin-bottom: 10px; 
+    padding: 10px; 
+  }
+  
+  .chk-1{
+    margin-left: 50px;
+  }
+  
+  .mb-4{
+    margin-left: 50px;
+  }
+  
+  .booking-form .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    margin-top: 10px; 
+    padding: 10px 20px; 
+  }
+  
+  .booking-form .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .booking-form .form-check {
+    margin-bottom: 10px; /* Space below checkbox */
+  }
+  
+  .booking-form .form-check-label {
+    margin-left: 5px; /* Space to the left of the label */
+  }
+  
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px; /* Space above the form within the carousel */
+  }
+  
+  .carousel-item {
+    height: 900px; /* Adjust as needed */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* Add spacing between form groups (optional) */
+  .booking-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Style the select dropdown arrow (optional - might need browser prefixes) */
+  .booking-form select {  
+    appearance: menulist-button; 
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l8 8 8-8'/%3e%3c/svg%3e"); /* Example SVG arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px; /* Make space for the arrow */
+  }
+  
+  .booking-form .invalid-feedback {
+    display: block;
+    color: #dc3545; 
+    margin-top: 5px;
+  }
+  .col-md-8{
+    width: auto;
+  }

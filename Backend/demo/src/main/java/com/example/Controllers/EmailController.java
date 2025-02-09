@@ -12,7 +12,7 @@ import com.example.Models.EmailDetails;
 import com.example.Services.EmailService;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EmailController {
  
     @Autowired private EmailService emailService;

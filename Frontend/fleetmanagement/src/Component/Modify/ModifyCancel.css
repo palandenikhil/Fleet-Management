@@ -1,0 +1,71 @@
+.booking-container {
+    margin-top: 20px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .booking-container h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #007bff;
+  }
+  
+  .booking-container h4 {
+    margin-top: 30px;
+    color: #333;
+  }
+  
+  .booking-container .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .booking-container .form-control {
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  .booking-container .btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  
+  .booking-container .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .booking-container .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  .booking-container .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .booking-container .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  
+  .modal-body {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .modal-footer .btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  
+  .modal-footer .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  

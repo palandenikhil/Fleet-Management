@@ -20,8 +20,8 @@ import com.example.Services.BookingHeaderService;
 import com.example.dto.BookingHeaderDTO;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BookingHeaderController {
 
     @Autowired

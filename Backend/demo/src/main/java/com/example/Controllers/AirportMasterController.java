@@ -11,6 +11,7 @@ import com.example.Services.AirportMasterService;
 
 @RestController
 @RequestMapping("/api/airports")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AirportMasterController {
 
     

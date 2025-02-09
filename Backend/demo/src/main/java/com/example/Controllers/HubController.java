@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/hubs")
+@CrossOrigin(origins = "http://localhost:3000")
 public class HubController {
 
     @Autowired
@@ -24,7 +25,7 @@ public class HubController {
         return hubService.getHubsByCityId(cityId);
     }
 
-    @GetMapping("/airportCode/{airportCode}")
+    @GetMapping("/airportcode/{airportCode}")
     public List<HubMaster> getHubsByAirportCode(@PathVariable String airportCode) {
         return hubService.getHubsByAirportCode(airportCode);
     }

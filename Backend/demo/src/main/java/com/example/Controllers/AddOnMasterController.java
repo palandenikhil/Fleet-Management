@@ -13,6 +13,7 @@ import com.example.Services.AddOnMasterService;
 
 @RestController
 @RequestMapping("/api/addons")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AddOnMasterController {
 
     @Autowired

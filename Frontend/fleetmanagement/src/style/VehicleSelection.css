@@ -1,0 +1,75 @@
+/* Style for vehicle selection table */
+.vehicle-selection-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Table styles */
+.vehicle-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vehicle-table th,
+.vehicle-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.vehicle-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.vehicle-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button styling */
+.select-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.select-btn:hover {
+    background-color: #218838;
+}
+
+.booking-btn, .cancel-btn {
+    display: block;
+    margin: 10px auto;
+    width: 200px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.booking-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.booking-btn:hover {
+    background-color: #0056b3;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}

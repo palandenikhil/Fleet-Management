@@ -16,8 +16,8 @@ import com.example.Models.BookingDetail;
 import com.example.Services.BookingDetailService;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BookingDetailController {
 
 	@Autowired
