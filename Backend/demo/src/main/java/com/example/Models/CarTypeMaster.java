@@ -1,9 +1,8 @@
 package com.example.Models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+// import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 @Entity
 public class CarTypeMaster {
 	@Id

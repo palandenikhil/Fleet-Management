@@ -1,79 +1,104 @@
-// import React, { useState, useEffect } from 'react';
-// import { Card, Form, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-// const AddonList = () => {
-//     const [addons, setAddons] = useState([]);
-//     const [selectedAddons, setSelectedAddons] = useState([]);
+const Addon = () => {
+  const [addons, setAddons] = useState([]);
+  const [selectedAddons, setSelectedAddons] = useState([]);
+  const [childSeatCount, setChildSeatCount] = useState(1);
+  const [showChildSeatDropdown, setShowChildSeatDropdown] = useState(false);
 
-//     useEffect(() => {
-//         fetchAddons();
-//     }, []);
+  const navigate = useNavigate(); // Initialize navigate
 
-//     const fetchAddons = async () => {
-//         try {
-//             const response = await fetch('http://localhost:8080/addon');
-//             if (response.ok) {
-//                 const data = await response.json();
-//                 sessionStorage.setItem('addons', JSON.stringify(data));
-//                 setAddons(data);
-//             } else {
-//                 console.error('Failed to fetch addons');
-//             }
-//         } catch (error) {
-//             console.error('Error fetching addons:', error);
-//         }
-//     };
+  useEffect(() => {
+    fetch("http://localhost:8080/api/addons")
+      .then((response) => response.json())
+      .then((data) => setAddons(data))
+      .catch((error) => console.error("Error fetching addons:", error));
+  }, []);
 
-//     const handleSelectAddon = (addonId) => {
-//         // Toggle selection of addon with addonId
-//         if (selectedAddons.includes(addonId)) {
-//             setSelectedAddons(selectedAddons.filter(id => id !== addonId));
-//         } else {
-//             setSelectedAddons([...selectedAddons, addonId]);
-//         }
-//     };
+  useEffect(() => {
+    const isChildSeatSelected = selectedAddons.some(
+      (addon) => addon.addonName === "Child Seats"
+    );
+    setShowChildSeatDropdown(isChildSeatSelected);
+  }, [selectedAddons]);
 
-//     // Add form data to session storage
-//     useEffect(() => {
-//         sessionStorage.setItem('selectedAddons', JSON.stringify(selectedAddons));
-//     }, [selectedAddons]);
+  const handleCheckboxChange = (addon) => {
+    setSelectedAddons((prevSelected) => {
+      if (prevSelected.some((item) => item.addonId === addon.addonId)) {
+        return prevSelected.filter((item) => item.addonId !== addon.addonId);
+      } else {
+        return [...prevSelected, addon];
+      }
+    });
+  };
 
-//     const handleContinue = () => {
-//         // Handle continue button click
-//         console.log('Selected addons:', selectedAddons);
-//         window.location.href = '/StaffBookingForm';
-//     };
+  const handleChildSeatChange = (e) => {
+    setChildSeatCount(Math.max(1, parseInt(e.target.value) || 1));
+  };
 
-//     return (
-//         <>
-//             <h1 className="mb-4">Addon List</h1>
-//             <div className="d-flex flex-wrap justify-content-center align-items-center">
-//                 {addons.map((addon) => (
-//                     <Card key={addon.addonId} style={{ width: '18rem', margin: '10px' }}>
-//                         <Card.Body>
-//                             <Card.Title>{addon.addonName}</Card.Title>
-//                             <Card.Text>
-//                                 Rate: &#8377;{addon.addonDailyRate.toFixed(2)} per day
-//                             </Card.Text>
-//                             <Card.Text>
-//                                 Valid Until: {new Date(addon.rateValidUntil).toLocaleDateString()}
-//                             </Card.Text>
-//                             <Form.Check
-//                                 type="checkbox"
-//                                 id={`addon-${addon.addonId}`}
-//                                 label="Select"
-//                                 checked={selectedAddons.includes(addon.addonId)}
-//                                 onChange={() => handleSelectAddon(addon.addonId)}
-//                             />
-//                         </Card.Body>
-//                     </Card>
-//                 ))}
-//             </div>
-//             <div className="text-center">
-//                 <Button variant="primary" onClick={handleContinue}>Continue</Button>
-//             </div>
-//         </>
-//     );
-// };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const finalSelection = selectedAddons.map((addon) =>
+      addon.addonName === "Child Seats"
+        ? { ...addon, quantity: childSeatCount }
+        : addon
+    );
+    console.log("Selected Add-ons:", finalSelection);
 
-// export default AddonList;
+    // Redirect to CustomerInfo page with selected addons
+    navigate("/CustomerInfo", { state: { selectedAddons: finalSelection } });
+  };
+
+  return (
+    <Container className="addon-form-container">
+      <h3 className="addon-title">Rental Add-ons</h3>
+      <Form onSubmit={handleSubmit}>
+        {addons?.map((addon) => (
+          <Row key={addon.addonId} className="addon-item align-items-center">
+            <Col xs={6} className="addon-label">
+              <Form.Check
+                type="checkbox"
+                label={addon.addonName}
+                onChange={() => handleCheckboxChange(addon)}
+                checked={selectedAddons.some((item) => item.addonId === addon.addonId)}
+              />
+            </Col>
+            <Col xs={6} className="text-end">
+              <span>${addon.addonDailyRate}/day</span>
+            </Col>
+          </Row>
+        ))}
+
+        {showChildSeatDropdown && (
+          <div className="child-seat-container visible">
+            <label className="child-seat-label">Please enter No. of Seats</label>
+            <Form.Select
+              value={childSeatCount}
+              onChange={handleChildSeatChange}
+              className="child-seat-dropdown"
+            >
+              {[...Array(5).keys()].map((num) => (
+                <option key={num + 1} value={num + 1}>
+                  {num + 1}
+                </option>
+              ))}
+            </Form.Select>
+          </div>
+        )}
+
+        <div className="button-container">
+          <Button type="submit" variant="primary" className="continue-button">
+            Continue Booking
+          </Button>
+          <Button variant="secondary" className="cancel-button">
+            Cancel
+          </Button>
+        </div>
+      </Form>
+    </Container>
+  );
+};
+
+export default Addon;

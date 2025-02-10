@@ -1,8 +1,8 @@
 package com.example.Models;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+// import lombok.NoArgsConstructor;
+// import lombok.AllArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 @Table(name = "booking")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class BookingHeader {
 
     @Id
@@ -75,9 +74,9 @@ public class BookingHeader {
 
     private Double monthlyrate;  // Reference to monthly rate
     
-    private int pickup_hubId;
+    private String pickup_hubAddress;
 	
-    private int return_hubId;
+    private String return_hubAddress;
 
 	public Long getBookingId() {
 		return bookingId;
@@ -249,20 +248,20 @@ public class BookingHeader {
 		this.monthlyrate = monthlyrate;
 	}
 
-	public int getPickup_hubId() {
-		return pickup_hubId;
+	public String getPickup_hubAddress() {
+		return pickup_hubAddress;
 	}
 
-	public void setPickup_hubId(int pickup_hubId) {
-		this.pickup_hubId = pickup_hubId;
+	public void setPickup_hubAddress(String pickup_hubAddress) {
+		this.pickup_hubAddress = pickup_hubAddress;
 	}
 
-	public int getReturn_hubId() {
-		return return_hubId;
+	public String getReturn_hubAddress() {
+		return return_hubAddress;
 	}
 
-	public void setReturn_hubId(int return_hubId) {
-		this.return_hubId = return_hubId;
+	public void setReturn_hubAddress(String return_hubAddress) {
+		this.return_hubAddress = return_hubAddress;
 	}
 
 	
@@ -270,7 +269,8 @@ public class BookingHeader {
     public BookingHeader(Long bookingId, LocalDate bookingdate, CustomerMaster customer, LocalDate startdate,
 			LocalDate enddate, CarMaster car, CarTypeMaster cartype, List<BookingDetail> bookingDetails,
 			String firstname, String lastname, String address, String state, String pin, String emailId,
-			Double dailyrate, Double weeklyrate, Double monthlyrate, int pickup_hubId, int return_hubId) {
+			Double dailyrate, Double weeklyrate, Double monthlyrate, String pickup_hubAddress, String return_hubAddress) 
+	{
 		super();
 		this.bookingId = bookingId;
 		this.bookingdate = bookingdate;
@@ -289,8 +289,8 @@ public class BookingHeader {
 		this.dailyrate = dailyrate;
 		this.weeklyrate = weeklyrate;
 		this.monthlyrate = monthlyrate;
-		this.pickup_hubId = pickup_hubId;
-		this.return_hubId = return_hubId;
+		this.pickup_hubAddress = pickup_hubAddress;
+		this.return_hubAddress = return_hubAddress;
 	}
 
 	public BookingHeader() {
@@ -303,11 +303,8 @@ public class BookingHeader {
 				+ ", startdate=" + startdate + ", enddate=" + enddate + ", carId=" + car + ", cartypeId=" + cartype
 				+ ", bookingDetails=" + bookingDetails + ", firstname=" + firstname + ", lastname=" + lastname
 				+ ", address=" + address + ", state=" + state + ", pin=" + pin + ", emailId=" + emailId + ", dailyrate="
-				+ dailyrate + ", weeklyrate=" + weeklyrate + ", monthlyrate=" + monthlyrate + ", pickup_hubId="
-				+ pickup_hubId + ", return_hubId=" + return_hubId + "]";
+				+ dailyrate + ", weeklyrate=" + weeklyrate + ", monthlyrate=" + monthlyrate + ", pickup_hubAddress="
+				+ pickup_hubAddress + ", return_hubAddress=" + return_hubAddress + "]";
 	}
-
-	
-    
-    
+   
 }

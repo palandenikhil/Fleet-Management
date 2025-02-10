@@ -3,13 +3,12 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+// import lombok.NoArgsConstructor;
+// import lombok.AllArgsConstructor;
 
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class BookingDetail {
 
     @Id
@@ -66,15 +65,14 @@ public class BookingDetail {
 		this.addonRate = addonRate;
 	}  
 	
-	public BookingDetail() {
+	// public BookingDetail() {
 		
-	}
+	// }
 
 	@Override
 	public String toString() {
 		return "BookingDetail [bookingAddonId=" + bookingDetailId + ", bookingId=" + bookingId + ", addonId=" + addonId
 				+ ", addonRate=" + addonRate + "]";
 	}
-    
-	
+    	
  }
