@@ -1,0 +1,99 @@
+.booking-container {
+    max-width: 800px;
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+}
+
+h2, h4 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #555;
+}
+
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 10px 14px;
+    font-size: 16px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 25px;
+}
+
+.text-center .btn {
+    width: 130px;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 10px 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.text-center .btn-primary {
+    background: #007bff;
+    border: none;
+}
+
+.text-center .btn-primary:hover {
+    background: #0056b3;
+}
+
+.text-center .btn-secondary {
+    background: #6c757d;
+    border: none;
+}
+
+.text-center .btn-secondary:hover {
+    background: #545b62;
+}
+
+.text-center .btn-danger {
+    background: #dc3545;
+    border: none;
+}
+
+.text-center .btn-danger:hover {
+    background: #c82333;
+}
+
+/* Add space between form sections */
+.row {
+    margin-bottom: 20px;
+}
+
+/* Ensure all columns have space */
+.col-md-6, .col-md-3, .col-md-12 {
+    margin-bottom: 15px;
+}
+
+/* Improve spacing for smaller screens */
+@media (max-width: 768px) {
+    .booking-container {
+        padding: 20px;
+    }
+
+    .text-center .btn {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

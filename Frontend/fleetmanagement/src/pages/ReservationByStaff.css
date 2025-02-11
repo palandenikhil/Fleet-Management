@@ -1,0 +1,92 @@
+.reservation-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 50px;
+  }
+  
+  .reservation-heading {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .reservation-form h5 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .reservation-form .find-airport-link {
+    display: block;
+    margin-top: 0.5rem;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .reservation-form .find-airport-link:hover {
+    text-decoration: underline;
+  }
+  
+  .reservation-form .radio-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .reservation-form .continue-booking-btn {
+    margin-top: 2rem;
+    width: 100%;
+    background-color: #007bff;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reservation-form .continue-booking-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .reservation-form input[type="text"],
+  .reservation-form input[type="date"],
+  .reservation-form input[type="time"] {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+  
+  .reservation-form label {
+    font-size: 1.2rem;
+    color: #000; /* Ensure the label text color is set */
+  }
+  
+  .reservation-form .search-button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .reservation-form .search-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .reservation-form .form-check-input {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .reservation-form .form-check-label {
+    font-size: 1.2rem;
+    padding-left: 0.5rem;
+  }
