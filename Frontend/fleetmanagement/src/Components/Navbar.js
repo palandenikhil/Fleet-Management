@@ -12,7 +12,7 @@ const Navbar = () => {
 
                 <div className="navbar-left">
                     <a href="/">Home</a>
-                    <a href="/modify-cancel">Modify/Cancel Booking</a>
+                    <a href="/ModifyCancel">Modify/Cancel Booking</a>
                     <a href="/Signup">Membership Registration</a>
                     <a href="/AboutUs">About us</a>
                     <a href="/CustomerCare">Customer Care</a>

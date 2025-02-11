@@ -46,7 +46,14 @@ function VehicleSelection() {
   };
 
   const handleContinueBooking = () => {
-    if (selectedVehicle) {
+    if (selectedVehicle){
+      
+      localStorage.setItem('dailyrate', selectedVehicle.dailyRate);
+      localStorage.setItem('weeklyrate', selectedVehicle.weeklyRate);
+      localStorage.setItem('monthlyrate', selectedVehicle.monthlyRate);
+      localStorage.setItem('selectedCarId', selectedVehicle.id);
+      localStorage.setItem('selectedCarTypeId', selectedVehicle.typeId);
+      console.log(selectedVehicle.type);
       navigate('/Addon', { state: { selectedVehicle: selectedVehicle } });
     } else {
       alert("Please select a vehicle.");

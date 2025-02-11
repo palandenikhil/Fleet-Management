@@ -28,7 +28,7 @@ function HubSelection() {
 
       const url = cityId
         ? `http://localhost:8080/api/hubs/city/${cityId}`
-        : `http://localhost:8080/api/hubs/airportcode/${airportCode}`;
+        : `http://localhost:8080/api/hubs/airportCode/${airportCode}`;
 
       try {
         const response = await fetch(url);

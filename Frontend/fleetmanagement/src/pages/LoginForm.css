@@ -1,3 +1,7 @@
+/* body{
+  background: url('../assets/bg4.png');
+} */
+
 .login-container {
   max-width: 450px;
   margin: 50px auto;
@@ -9,7 +13,7 @@
 }
 
 .login-container h2 {
-  color: #5c00b3;
+  color: hsl(271, 100%, 35%);
   font-weight: 700;
   text-align: center;
   margin-bottom: 25px;

@@ -3,13 +3,13 @@ import { CssBaseline, Container } from "@mui/material";
 import Navbar from "../Components/Navbar"; 
 import Footer2 from "../Components/Footer2";
 import ReservationForm from '../Components/ReservationForm';
-import bg from '../assets/bg.png';
+import pic2 from "../assets/pic2.png";
 
 export const Abhishek2 = () => {
     return (
         <div
         style={{
-            backgroundImage: `url(${bg})`,
+            backgroundImage: `url(${pic2})`,
             backgroundSize: "cover", // Ensures the image covers the entire div
             backgroundPosition: "center", // Centers the image
             backgroundRepeat: "no-repeat", // Prevents repeating

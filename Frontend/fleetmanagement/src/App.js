@@ -14,6 +14,9 @@ import VehicleSelection from './pages/VehicleSelection';
 import Addon from './pages/Addon';
 import CancleBookingByStaff from './pages/CancleBookingByStaff';
 import HandOverDetails from './pages/HandOverDetails';
+import BookingDetail from './pages/BookingDetail';
+import ModifyCancel from './pages/ModifyCancel';
+import Return from './pages/Return';
 
 function App() {
   return (
@@ -26,7 +29,7 @@ function App() {
         { <Route path="/LoginForm" element={<LoginForm/>} />}
         { <Route path="/StaffLogin" element={<StaffLogin />} /> }
         { <Route path="/ReservationByStaff" element={<ReservationByStaff/>} /> }
-        { <Route path="/ReservationByStaff" element={<ReservationByStaff/>} /> }
+        { <Route path="/BookingDetail" element={<BookingDetail/>} /> }
         {  <Route path="/HubSelection" element={<HubSelection/>} /> }
         { <Route path="/VehicleSelection" element={<VehicleSelection/>} />}
         {  <Route path="/Addon" element={<Addon/>} />  }
@@ -34,6 +37,8 @@ function App() {
         { <Route path="/StaffPage" element={<StaffPage />} /> }
         { <Route path="/HandOverDetails" element={<HandOverDetails />} /> }
         { <Route path="/CancleBookingByStaff" element={<CancleBookingByStaff />} /> }
+        { <Route path="/ModifyCancel" element={<ModifyCancel />} /> }
+        { <Route path="/Return" element={<Return />} /> }
 
       </Routes>
     }

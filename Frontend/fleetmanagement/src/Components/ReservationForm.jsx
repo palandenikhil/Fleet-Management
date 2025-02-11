@@ -93,9 +93,12 @@ const ReservationForm = () => {
   };
 
   const navigate = useNavigate();
+
   const handleSearch = () => {
     console.log('Searching with data:', formData);
-  
+    
+    localStorage.setItem('reservationFormData', JSON.stringify(formData));
+
     // Pass pickup location (airport code) or city ID
     navigate('/HubSelection', {
       state: {
@@ -105,34 +108,12 @@ const ReservationForm = () => {
     });
   };
 
-  const minReturnDate = formData.rentalDate || today; // Set min return date to rental date if selected
-
-  const formStyle = {
-    backgroundColor: '#f8f9fa',
-    padding: '20px',
-    borderRadius: '8px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)'
-  };
-
-  const headingStyle = {
-    textAlign: 'center',
-    marginBottom: '20px',
-    color: '#333'
-  };
-
-  const buttonStyle = {
-    backgroundColor: '#007bff',
-    borderColor: '#007bff',
-    color: '#fff',
-    padding: '10px 20px',
-    fontSize: '16px',
-    cursor: 'pointer'
-  };
+  const minReturnDate = formData.rentalDate || today;
 
   return (
-    <Container className="reservation-form" style={formStyle}>
+    <Container className="reservation-form">
       <Form>
-        <h2 className="main-heading" style={headingStyle}>Make Your Reservation Here</h2>
+        <h2 className="main-heading">Make Your Reservation Here</h2>
         <Row>
           <Col md={6}>
             <Form.Group className="mb-3">
@@ -163,7 +144,7 @@ const ReservationForm = () => {
           </Col>
         </Row>
 
-        <h5>Pick-up Location</h5>
+        <h5 className='p-head'>Pick-up Location</h5>
         <Form.Group className="mb-3">
           <Form.Label>Enter Airport Code</Form.Label>
           <Form.Control type="text" name="pickupLocation" value={formData.pickupLocation} onChange={handleChange} disabled={formData.pickupState || formData.pickupCity} />
@@ -225,7 +206,7 @@ const ReservationForm = () => {
           </>
         )}
         <Form.Group className="mb-3">
-          <Button className="search-button" type="button" onClick={handleSearch} style={buttonStyle}>Search</Button>
+          <Button className="search-button" type="button" onClick={handleSearch}>Search</Button>
         </Form.Group>
       </Form>
     </Container>
